@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Suivi hebdomadaire des activités et bilan personnel">
+  <title>Mon suivi hebdomadaire</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Organisation personnelle</p>
+      <h1>Mon suivi hebdomadaire</h1>
+    </div>
+    <nav aria-label="Navigation principale">
+      <button class="nav-button active" data-page="courses-page">Période avec cours</button>
+      <button class="nav-button" data-page="free-page">Journée sans cours</button>
+      <button class="nav-button" data-page="management-page">Gestion de l’emploi du temps</button>
+      <button class="nav-button" data-page="archive-section">Bilans et archives</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dashboard" aria-labelledby="dashboard-title">
+      <div>
+        <p class="eyebrow">Tableau de bord</p>
+        <h2 id="dashboard-title">Cette semaine</h2>
+        <p id="week-label" class="muted"></p>
+      </div>
+      <div class="dashboard-stats">
+        <div><strong id="current-day">—</strong><span>Aujourd'hui</span></div>
+        <div><strong id="completed-count">0</strong><span>Terminées</span></div>
+        <div><strong id="remaining-count">0</strong><span>Restantes</span></div>
+        <div><strong id="progress-value">0 %</strong><span>Progression</span></div>
+      </div>
+      <div class="progress-track large" aria-label="Progression hebdomadaire">
+        <span id="progress-bar"></span>
+      </div>
+      <div class="dashboard-actions">
+        <button id="choose-folder" class="primary-button">Choisir le dossier de sauvegarde</button>
+        <button id="export-data" class="secondary-button">Exporter les données JSON</button>
+        <span id="storage-status" class="status" role="status"></span>
+      </div>
+    </section>
+
+    <section id="courses-page" class="page" aria-labelledby="courses-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Planning principal</p><h2 id="courses-title">Suivi de la semaine</h2></div>
+        <span class="badge">Lundi — Dimanche</span>
+      </div>
+      <div id="courses-days" class="days-grid"></div>
+    </section>
+
+    <section id="free-page" class="page hidden" aria-labelledby="free-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Planning alternatif</p><h2 id="free-title">Journée sans cours</h2></div>
+        <span class="badge">Horaires libres après le travail</span>
+      </div>
+      <div id="free-days" class="days-grid"></div>
+    </section>
+
+    <section id="management-page" class="page hidden" aria-labelledby="management-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Configuration</p><h2 id="management-title">Gestion de l’emploi du temps</h2></div>
+      </div>
+      <div class="management-toolbar">
+        <label for="planning-mode">Période
+          <select id="planning-mode">
+            <option value="courses">Période avec cours</option>
+            <option value="free">Période sans cours</option>
+          </select>
+        </label>
+        <label for="planning-day">Jour
+          <select id="planning-day"></select>
+        </label>
+        <label for="current-week-action">Application
+          <select id="current-week-action">
+            <option value="next">À partir de la semaine suivante</option>
+            <option value="current">Appliquer aussi à la semaine en cours</option>
+          </select>
+        </label>
+      </div>
+      <div class="management-actions">
+        <button id="add-activity" class="secondary-button" type="button">Ajouter une activité</button>
+        <button id="copy-day" class="secondary-button" type="button">Copier vers un autre jour</button>
+        <button id="preview-planning" class="secondary-button" type="button">Prévisualiser</button>
+        <button id="cancel-planning" class="secondary-button" type="button">Annuler les modifications</button>
+        <button id="restore-planning" class="secondary-button" type="button">Restaurer le planning initial</button>
+        <button id="save-planning" class="primary-button" type="button">Enregistrer les modifications</button>
+      </div>
+      <p id="planning-status" class="status" role="status"></p>
+      <div id="planning-preview" class="planning-preview"></div>
+      <div id="planning-editor" class="planning-editor"></div>
+    </section>
+
+    <section id="archive-section" class="archive-section" aria-labelledby="archive-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Historique</p><h2 id="archive-title">Anciennes semaines</h2></div>
+      </div>
+      <div id="archive-list" class="archive-list"><p class="muted">Aucun bilan clôturé pour le moment.</p></div>
+    </section>
+  </main>
+  <footer><span>Les données restent sur cet ordinateur.</span><span id="last-saved"></span></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
