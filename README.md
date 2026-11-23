@@ -20,4 +20,8 @@ Le site contrôle l'heure chaque minute lorsqu'il est ouvert et vérifie au char
 Un navigateur fermé ne peut pas exécuter de code à 23 h. La vérification à la prochaine ouverture compense cette limite. L'autorisation du dossier n'est pas persistée par tous les navigateurs : il peut être nécessaire de la redonner après une nouvelle session.
 
 Les données de secours sont conservées dans `localStorage`. Effacer les données du navigateur les supprime ; l'export JSON est recommandé pour une copie indépendante.
+
+## Licence
+
+Ce projet est distribué sous licence [MIT](LICENSE).
 # mon-suivi-hebdomadaire
